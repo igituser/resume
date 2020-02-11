@@ -1,7 +1,8 @@
 body{
-    background:black;
+    background:#EFEFEF;
     font-family:Arial, Helvetica, sans-serif;
     margin:0;
+    color:#000;
 }
 
 a{
@@ -17,26 +18,39 @@ a{
 }
 
 .topNavBar {
-    padding-top:20px;
-    padding-bottom:20px;
-    padding-right:16px;
-    padding-left:16px;
+    padding-top:20px 0;
+
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    /* width;100% 的bug，子元素比body还宽了，加上内外边距的宽度
+     新手就喜欢写宽度 高度，建议能不写就不写
+    */
 }
 
-.topNavBar > nav > ul{
+.topNavBar .topNavBar-inner{
+    padding:20px 16px;
+}
+
+.topNavBar  nav {
     float:right;
+}
+
+.topNavBar  nav  ul{
+    /* float:right; */
     list-style: none;
     margin:0px;
     padding:0px;
 }
 
-.topNavBar > nav > ul > li{
+.topNavBar  nav  ul  li{
     float:left;
     margin-left:17px;
     margin-right:17px;
 }
 
-.topNavBar > nav > ul > li > a{
+.topNavBar  nav  ul  li  a{
     display:block;
     color:#b7b7b7;
     font-size:12px;
@@ -47,20 +61,40 @@ a{
     line-height:33px;
 }
 
-.topNavBar > nav > ul > li > a:hover{
+.topNavBar  nav  ul  li  a:hover{
     border-bottom: 3px solid #e06567;
 }
 
-.topNavBar > .logo{
+.topNavBar  .logo{
     float:left;
     font-size:24px;
     font-family:"Arial Black";
 }
 
-.topNavBar > .logo > .rs{
+.topNavBar  .logo  .rs{
     color:#e6686a;
 }
 
-.topNavBar > .logo > .card{
+.topNavBar  .logo  .card{
     color:#9a9da2
+}
+
+.banner {
+    /*height属性bug，尽量不要写死 高度大于字体行高没问题，小于就会出现莫名其妙的问题*/
+    height:515px;
+    background-image:url("./img/rs-cover-2-2-1-1.jpg");
+    background-position:center center;
+    background-size:cover;
+}
+
+.banner .mask{
+    height:515px;
+    background-color:rgba(0,0,0,.7);
+}
+
+.userCard{
+    border:1px solid red;
+    max-width:940px;
+    margin:0 auto;
+    background-color:#FFF;
 }
