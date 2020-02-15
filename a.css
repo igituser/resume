@@ -1,6 +1,6 @@
 body{
     background:#EFEFEF;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial, "Microsoft YaHei", Helvetica, sans-serif;
     margin:0;
     color:#000;
 }
@@ -12,7 +12,7 @@ body{
 
 hr{
     height:0;
-
+    border-top:#DEDEDE;
 }
 
 a{
@@ -101,7 +101,6 @@ a{
 }
 
 .userCard{
-    border:1px solid red;
     max-width:940px;
     margin:0 auto;
     background-color:#FFF;
@@ -144,4 +143,45 @@ a{
 
 .userCard .pictureAndText .text h1{
     margin:18px 0;
+}
+
+.userCard .pictureAndText .text hr{
+    margin:20px 0;
+}
+
+
+/* 此处有bug，中文英文字体高度不一致导致浮动位置错位 */
+.userCard dt{
+    float:left;
+    width:50%;
+    font-weight:bold;
+}
+
+.userCard dd{
+    float:left;
+    width:50%;
+    padding:5px 0;
+    color:#9da0a7;
+}
+
+.userCard > footer.media{
+    text-align: center;
+    background-color:#E6686A;
+    padding:16px 0;
+}
+
+.userCard footer.media a{
+    display: inline-block;
+    border-radius:50%;
+    padding:5px;
+}
+
+.userCard footer.media a:hover{
+    background-color:#CF5D5F;
+}
+
+.userCard svg{
+    width:30px;
+    height:30px;
+    fill:#fff;
 }
