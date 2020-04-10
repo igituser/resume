@@ -230,13 +230,15 @@ body main .selfIntroduction{
     font-size:16px;
 }
 
-section.skills {
+section.skills,
+section.portfolio {
     max-width:940px;
     margin:0 auto;
     margin-top:60px;
 }
 
-section.skills > h2{
+section.skills,
+section.portfolio > h2{
     text-align:center;
     color:#3d4451;
     font-size:34px;
@@ -289,4 +291,36 @@ section.skills .progressBar .progress{
     height:100%;
     background-color: #E6686A;
     width:50%;
+}
+
+section.portfolio {
+    text-align:center;
+}
+
+section.portfolio nav {
+    display:inline-block;
+    vertical-align:top;
+    /* border:1px solid red; */
+}
+
+section.portfolio ol {
+    border:1px solid red;
+    margin:0 auto;
+    display:inline-block;
+    vertical-align:top; /* 浮动内联元素会有对齐问题使用vertical-align 顶边对齐 */
+    
+}
+
+section.portfolio nav ol > li{
+    float:left;
+    margin-left:40px;
+}
+
+/* first-child 同理 */
+section.portfolio nav ol li:nth-child(1){
+    margin-left:0;
+}
+
+section.portfolio nav .bar{
+    border:1px solid red;
 }
