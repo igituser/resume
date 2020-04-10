@@ -282,9 +282,10 @@ section.skills ol li h3{
 
 section.skills .progressBar{
     height:5px;
-    border:1px solid #FAE1E1;
-    border-radius:2px;
     margin:4px 0 40px;
+    /* border:1px solid #FAE1E1; */
+    border-radius:2px;
+    background-color:#FAE1E1;
 }
 
 section.skills .progressBar .progress{
