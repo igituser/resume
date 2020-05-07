@@ -37,7 +37,7 @@
 		<div class="loading"></div>
 	</div>
 	<!-- 导航 -->
-	<div class="topNavBar " >
+	<div id="topNavBar" class="topNavBar " >
 		 <div class="topNavBar-inner clearfix">
 			 <a class="logo" href=""><span class="rs">RS</span><span class="card">card</span></a>
 			 <nav>
@@ -217,5 +217,13 @@
 <script>
 	window.onload = function(e){
 		siteWelcome.classList.remove('active');
+	}
+
+	window.onscroll = function(e){
+		if(window.scrollY > 0){
+			topNavBar.classList.add('sticky')
+		}else{
+			topNavBar.classList.remove('sticky')
+		}
 	}
 </script>

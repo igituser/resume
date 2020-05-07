@@ -35,6 +35,7 @@ a{
 }
 
 .topNavBar {
+    color:#b7b7b7;
     padding-top:20px 0;
     position: fixed;
     top:0;
@@ -43,6 +44,13 @@ a{
     /* width;100% 的bug，子元素比body还宽了，加上内外边距的宽度
      新手就喜欢写宽度 高度，建议能不写就不写
     */
+    transition:all .5s;
+}
+
+.topNavBar.sticky{
+    background-color:white;
+    box-shadow:0 0 10px rgba(0,0,0,0.35);
+    color:#3d4451;
 }
 
 .topNavBar .topNavBar-inner{
@@ -64,21 +72,39 @@ a{
     float:left;
     margin-left:17px;
     margin-right:17px;
+    position:relative;
 }
 
 .topNavBar  nav  ul  li  a{
     display:block;
-    color:#b7b7b7;
+    color:inherit;
     font-size:12px;
     font-weight:bold; 
     border-top:3px solid transparent;
     border-bottom:3px solid transparent;
-    height:33px;
+    height:28px;
     line-height:33px;
 }
 
-.topNavBar  nav  ul  li  a:hover{
-    border-bottom: 3px solid #e06567;
+.topNavBar  nav  ul  li  a:hover::after{
+    content:'';
+    position:absolute;
+    top:100%;
+    width:100%;
+    left:0;
+    background-color:#e06567;
+    height:3px;
+    animation:menuSider .3s;
+}
+
+@keyframes menuSider {
+    0%{
+        width:0px;
+    }
+
+    100%{
+        width:100%;
+    }
 }
 
 .topNavBar  .logo{

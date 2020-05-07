@@ -18,7 +18,7 @@
 
     width:0;
     height:0;
-    background-color: black;
+    background-color: black ;
     border-radius: 50%;
     animation: s 2s linear infinite;
 }
