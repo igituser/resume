@@ -120,7 +120,8 @@ a{
     position:relative;
     background-color: #e6686a;
     color:#fff;
-    padding:4px 16px; /* 写width height line-height 都是新手，而且还有bug，如果内容发生变化就是bug,不要写宽高要用盒子内边距找补 */
+    /* 写width height line-height 都是新手，而且还有bug，如果内容发生变化就是bug,不要写宽高要用盒子内边距找补 */
+    padding:4px 16px;
     line-height:22px;
     margin-bottom:10px;
 }
