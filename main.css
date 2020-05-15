@@ -59,6 +59,7 @@ a{
 
 .topNavBar  nav {
     float:right;
+    position:relative;
 }
 
 .topNavBar  nav  ul{
@@ -86,10 +87,10 @@ a{
     line-height:33px;
 }
 
-.topNavBar  nav  ul  li  a:hover::after{
+.topNavBar  nav  ul > li.active > a::after{
     content:'';
     position:absolute;
-    top:100%;
+    top:90%;
     width:100%;
     left:0;
     background-color:#e06567;
@@ -120,6 +121,39 @@ a{
 .topNavBar  .logo  .card{
     color:#9a9da2
 }
+
+.topNavBar nav li .submenu{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    background-color:white;
+    color:#3d4451;
+    animation:submenuSider .3s;
+    box-shadow:0 0 5px rgba(0,0,0,9);
+    border-radius:3px;
+}
+
+.topNavBar nav li.active .submenu{
+    display:block;
+}
+
+@keyframes submenuSider{
+    0%{
+        margin-right:100%;
+    }
+
+    100%{
+        margin-right:0;
+    }
+}
+/* 列表元素不换行 */
+.topNavBar nav .submenu > li{
+    white-space:nowrap;
+}
+
+
+
 
 .banner {
     /*height属性bug，尽量不要写死 高度大于字体行高没问题，小于就会出现莫名其妙的问题*/

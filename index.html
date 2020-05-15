@@ -42,13 +42,37 @@
 			 <a class="logo" href=""><span class="rs">RS</span><span class="card">card</span></a>
 			 <nav>
 				 <ul class="clearfix">
-					 <li><a href="#">关于</a></li>
-					 <li><a href="#">技能</a></li>
-					 <li><a href="#">作品</a></li>
-					 <li><a href="#">博客</a></li>
-					 <li><a href="#">日历</a></li>
-					 <li><a href="#">联系方式</a></li>
-					 <li><a href="#">其他</a></li>
+					 <li>
+						 <a href="#siteUserCard">关于</a>
+					</li>
+					 <li>
+						 <a href="#siteSkills">技能</a>
+					</li>
+					 <li>
+						 <a href="#sitePortfolio">作品</a>
+						 <ul class="submenu">
+							 <li>作品1</li>
+							 <li>作品2</li>
+							 <li>作品3</li>
+						 </ul>
+					</li>
+					 <li>
+						 <a href="#">博客</a>
+						 <ul class="submenu">
+							<li>博客1</li>
+							<li>博客2</li>
+							<li>博客3</li>
+						</ul>
+					</li>
+					 <li>
+						 <a href="#">日历</a>
+					</li>
+					 <li>
+						 <a href="#">联系方式</a>
+					</li>
+					 <li>
+						 <a href="#">其他</a>
+					</li>
 					 <!-- <li><a href="#">ALL DEMOS</a></li> -->
 				 </ul>
 			 </nav>
@@ -62,7 +86,7 @@
 
 	<!-- 简历卡（主要内容） -->
 	<main>
-		<div class="userCard">
+		<div id="siteUserCard" class="userCard">
 			<div class="pictureAndText clearfix">
 				<div class="picture">
 					<img src="./img/avatar.jpg" alt="头像">
@@ -127,7 +151,7 @@
 		</p>
 	</main>
 	<!-- section代表章节的意义 -->
-	<section class="skills">
+	<section id='siteSkills' class="skills">
 		<h2>专业技能</h2>
 		<ol class="clearfix">
 			<li>
@@ -170,7 +194,7 @@
 	</section>
 
 	<!-- 项目或者作品 -->
-	<section class="portfolio">
+	<section id="sitePortfolio" class="portfolio">
 		<h2>作品集</h2>
 		<nav>
 			<ol class="clearfix">
@@ -197,28 +221,28 @@
 		</div>
 	</section>
 
-	<script>
-		portfolio1.onclick = function (){
-			barToggle.className = "bar state-1";
-		}
-		barToggle
-		portfolio2.onclick = function (){
-			barToggle.className = "bar state-2";
-		}
-
-		portfolio3.onclick = function(){
-			barToggle.className = "bar state-3";
-		}
-	</script>
-
-
    </body>
 </html>
 <script>
+
+	portfolio1.onclick = function (){
+		barToggle.className = "bar state-1";
+	}
+
+	portfolio2.onclick = function (){
+		barToggle.className = "bar state-2";
+	}
+
+	portfolio3.onclick = function(){
+		barToggle.className = "bar state-3";
+	}
+
+	// loading
 	window.onload = function(e){
 		siteWelcome.classList.remove('active');
 	}
 
+	// sticky nav
 	window.onscroll = function(e){
 		if(window.scrollY > 0){
 			topNavBar.classList.add('sticky')
@@ -226,4 +250,32 @@
 			topNavBar.classList.remove('sticky')
 		}
 	}
+
+	// submenu
+	var lis = document.querySelectorAll('nav li');
+	for(var i = 0; i < lis.length; i ++){
+		lis[i].onmouseenter = function(e){
+			e.currentTarget.classList.add('active');
+		}
+
+		lis[i].onmouseleave = function(e){
+			e.currentTarget.classList.remove('active');
+		}
+	}
+
+	//滚动到锚点
+	var anchors = document.querySelectorAll('#topNavBar nav li a')
+	for(var i = 0; i < anchors.length ; i++){
+		anchors[i].onclick = function(e){
+			e.preventDefault()
+			//dom.id 和 dom.getAttribute('href')区别就是前者经过浏览器的处理加了http协议后的东西，后者则是用户写的原文
+			var href = e.currentTarget.getAttribute('href');
+			var ele = document.querySelector(href);
+
+			// console.log(ele.getBoundingClientRect())
+			var top = ele.offsetTop;
+			window.scrollTo(0, top - 80)
+		}
+	}
+
 </script>
