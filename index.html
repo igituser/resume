@@ -5,7 +5,8 @@
 	<link rel="stylesheet" href="./main.css">
 	<link rel="stylesheet" href="./loading.css">
 	<script src="//at.alicdn.com/t/font_1638479_omd2eu5wevr.js"></script>
-    <style type="text/css">
+	<script src="./js/tween.umd.js"></script>
+	<style type="text/css">
         .icon {
            width: 1em; height: 1em;
            vertical-align: -0.15em;
@@ -207,15 +208,17 @@
 			</div>
 		</nav>
 
-		
+		<!-- works内部绝对定位脱离文档流后，失去对元素对控制，高度失效只能手动指定 -->
+		<!-- 该板块元素是随着点击进行变化的，为了方便控制全部绝对定位 -->
 		<div class="works" style="height:576px;">
+			<!-- 绝对定位手动指定 top 和 left 不然有bug -->
 			<div class="big" style="top:0; left:0;">
 				<img src="./img/1.jpg" alt="作品1">
 			</div>
 			<div class="small" style="top:0; left:644px;">
 				<img src="./img/2.jpg" alt="作品2">
 			</div>
-			<div class="small" style="top:298px; left:644px;">
+			<div class="small" style="top:298px; left:644px;"> 
 				<img src="./img/3.jpg" alt="作品3">
 			</div>
 		</div>
@@ -274,7 +277,28 @@
 
 			// console.log(ele.getBoundingClientRect())
 			var top = ele.offsetTop;
-			window.scrollTo(0, top - 80)
+			// window.scrollTo(0, top - 80)
+
+			let currentTop = window.scrollY //当前视口Y轴距离
+			let targetTop = top - 80 
+			let s = targetTop - currentTop //需要滚动的距离
+			var t = Math.abs((s / 100) * 300) //滚动的距离和时间的关系，每100像素需要300毫秒的时间
+			if( t > 500 ) { t = 500 }  // 限制滚动时间不能长于500ms
+
+			function animate(time) {
+				requestAnimationFrame(animate)
+				TWEEN.update(time)
+			}
+			requestAnimationFrame(animate)
+			const coords = {y : currentTop} //从哪儿开始
+			const tween = new TWEEN.Tween(coords)
+			.to({y: targetTop}, t)
+			.easing(TWEEN.Easing.Quadratic.InOut) //缓动模式
+			.onUpdate(()=>{
+				// console.log(coords.y)
+				window.scrollTo(0, coords.y)
+			})
+			.start();			
 		}
 	}
 

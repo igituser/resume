@@ -291,6 +291,7 @@ body main .selfIntroduction{
     font-size:16px;
 }
 
+/* 专业技能板块 */
 section.skills,
 section.portfolio {
     max-width:940px;
@@ -355,12 +356,15 @@ section.skills .progressBar .progress{
     width:50%;
 }
 
+/* 项目或者作品 */
 section.portfolio {
+    /* 容器内内联块（inline-block)元素居中显示，如果没有设置宽度（width）则magin: 0 auto是无法居中元素的 */
     text-align:center;
     margin-bottom:100px;
 }
 
 section.portfolio nav {
+    /* 由于需要居中显示要设置内联块元素并且要对齐使用vertical-align:top搭配使用 */
     display:inline-block;
     vertical-align:top;
     /* border:1px solid red; */
@@ -376,6 +380,7 @@ section.portfolio ol {
 }
 
 section.portfolio nav ol > li{
+    /* 横向排列使用左浮动并让元素间隔40像素之间 */
     float:left;
     margin-left:40px;
     cursor:pointer;
@@ -383,6 +388,7 @@ section.portfolio nav ol > li{
 
 /* first-child 同理 */
 section.portfolio nav ol li:nth-child(1){
+    /* 使用伪类选择器取消第一个元素的左外边距 */
     margin-left:0;
 }
 
@@ -396,12 +402,15 @@ section.portfolio nav .bar{
 }
 
 section.portfolio nav .bar .bar-inner{
+    /* 设置撑满高度保持和父级一致 */
     height:100%;
     background-color: #e6686a;
     border-radius:2px;
+    /* 动画过渡效果 */
     transition:all .5s;
 }
 
+/* 状态机设置，使用javascript控制元素class切换用 */
 section.portfolio nav .bar.state-1 .bar-inner{
     width:10%;
     margin-left:0px;
