@@ -41,6 +41,7 @@ a{
     top:0;
     left:0;
     width:100%;
+    z-index: 1;
     /* width;100% 的bug，子元素比body还宽了，加上内外边距的宽度
      新手就喜欢写宽度 高度，建议能不写就不写
     */
@@ -87,7 +88,8 @@ a{
     line-height:33px;
 }
 
-.topNavBar  nav  ul > li.active > a::after{
+.topNavBar nav ul > li.active > a::after,
+.topNavBar nav ul > li.highlight > a::after{
     content:'';
     position:absolute;
     top:90%;
