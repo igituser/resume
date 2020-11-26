@@ -36,11 +36,3 @@
         width:70px; height:70px; opacity: 0;
     }
 }
-
-[data-x]{
-    transition:transform 0.3s;
-}
-
-[data-x].offset{
-    transform:translateY(300px);
-}

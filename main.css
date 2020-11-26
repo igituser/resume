@@ -354,8 +354,15 @@ section.skills .progressBar{
 
 section.skills .progressBar .progress{
     height:100%;
+    width:100%;
     background-color: #E6686A;
-    width:50%;
+    transition:width 1.5s;
+}
+
+section.skills.offset .progressBar .progress{
+    height:100%;
+    background-color: #E6686A;
+    width:1%;
 }
 
 /* 项目或者作品 */
@@ -438,4 +445,12 @@ section.portfolio .works{
 section.portfolio .works > .big,
 section.portfolio .works > .small {
     position:absolute;
+}
+
+[data-x]{
+    transition:transform 0.3s;
+}
+
+[data-x].offset{
+    transform:translateY(300px);
 }
